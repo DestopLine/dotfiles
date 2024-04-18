@@ -232,7 +232,7 @@
             "memberList": true
         },
         "MessageClickActions": {
-            "enabled": true,
+            "enabled": false,
             "enableDeleteOnClick": true,
             "enableDoubleClickToEdit": true,
             "enableDoubleClickToReply": true,
@@ -542,6 +542,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1713380193121
+        "settingsSyncVersion": 1713456842216
     }
 }
