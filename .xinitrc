@@ -1,1 +1,0 @@
-xrandr --output DP-1 --auto --pos 1366x0 --set "Broadcast RGB" "Full" --output DP-2 --auto --pos 0x312 --set "Broadcast RGB" "Full"
