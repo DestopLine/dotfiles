@@ -56,3 +56,6 @@ export NVM_DIR="$HOME/.nvm"
 source <(ng completion script)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export VCPKG_ROOT=~/Downloads/vcpkg
+export PATH=$VCPKG_ROOT:$PATH
