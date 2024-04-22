@@ -1,0 +1,87 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME
+separator_block_width=30
+markup=none
+
+# Volume indicator
+#
+# The first parameter sets the step (and units to display)
+# The second parameter overrides the mixer selection
+# See the script for details.
+
+# Generic media player support
+#
+# This displays "ARTIST - SONG" if a music is playing.
+# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
+# Set to %any to automatically pick (Requires playerctl >=2.1.1)
+[mediaplayer]
+label= 
+instance=spotify
+interval=5
+signal=11
+
+[volume]
+command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME 2%
+label=󰕾
+interval=once
+signal=10
+
+# Date Time
+# [time]
+# label=󱨰
+# command=date '+%a %d/%m/%Y'
+# interval=5
+
+[calendar]
+command=$SCRIPT_DIR/calendar/calendar -f '+%a %d/%m/%Y' -H 180 -W 220
+interval=5
+label=󱨰
+
+[time]
+label= 
+command=date '+%I:%M:%S %p  '
+interval=5
+
+# Key indicators
+#
+# Add the following bindings to i3 config file:
+#
+# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+#[keyindicator]
+#KEY=CAPS
+#markup=pango
+#interval=once
+#signal=11
+
+#[keyindicator]
+#KEY=NUM
+#markup=pango
+#interval=once
+#signal=11

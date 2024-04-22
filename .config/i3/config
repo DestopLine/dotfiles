@@ -1,0 +1,237 @@
+# i3 config file (v4)
+# Reference: https://i3wm.org/docs/userguide.html
+
+set $mod Mod4
+floating_modifier $mod
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
+
+font pango:JetBrainsMono NF Regular 13
+
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
+
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color 1e1e2e
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+exec --no-startup-id picom
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id flameshot
+exec --no-startup-id copyq
+exec --no-startup-id "setxkbmap 'us(altgr-intl)','us(alt-intl)' && ~/.config/i3/xkb-switch --i3"
+exec discord
+
+# Workspace names
+set $ws1 "1:dev"
+set $ws2 "2:web"
+set $ws3 "3:chat"
+set $ws4 "4:music"
+set $ws5 "5:game"
+set $ws6 "6:tool"
+set $ws7 "7:sys"
+set $ws8 "8:misc"
+
+# Switch to workspace
+bindsym $mod+a workspace number $ws1
+bindsym $mod+s workspace number $ws2
+bindsym $mod+d workspace number $ws3
+bindsym $mod+f workspace number $ws4
+bindsym $mod+z workspace number $ws5
+bindsym $mod+x workspace number $ws6
+bindsym $mod+c workspace number $ws7
+bindsym $mod+b workspace number $ws8
+
+# Move focused container to workspace
+bindsym $mod+Shift+a move container to workspace number $ws1
+bindsym $mod+Shift+s move container to workspace number $ws2
+bindsym $mod+Shift+d move container to workspace number $ws3
+bindsym $mod+Shift+f move container to workspace number $ws4
+bindsym $mod+Shift+z move container to workspace number $ws5
+bindsym $mod+Shift+x move container to workspace number $ws6
+bindsym $mod+Shift+c move container to workspace number $ws7
+bindsym $mod+Shift+b move container to workspace number $ws8
+
+# This hack makes it possible to "move the border" instead of resizing the container.
+# We are growing to the specified direction and shrinking to the opposite direction.
+set $units 5 px or 5 ppt
+bindsym $mod+Control+h resize grow left  $units; resize shrink right $units
+bindsym $mod+Control+j resize grow down  $units; resize shrink up    $units
+bindsym $mod+Control+k resize grow up    $units; resize shrink down  $units
+bindsym $mod+Control+l resize grow right $units; resize shrink left  $units
+
+# reload the configuration file
+bindsym $mod+r reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Adjust volume.
+set $refresh_vol pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset 'Master' 2%+ && $refresh_vol
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset 'Master' 2%- && $refresh_vol
+bindsym XF86AudioMute exec --no-startup-id amixer sset 'Master' toggle && $refresh_vol
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Media player controls.
+set $refresh_player pkill -RTMIN+11 i3blocks
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next && $refresh_player
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous && $refresh_player
+
+# Launch program.
+bindsym Print exec flameshot gui
+bindsym $mod+v exec copyq show
+bindsym $mod+Return exec kitty
+bindsym $mod+space exec rofi -show drun
+bindsym $mod+Shift+space exec dmenu_run
+bindsym $mod+Control+space exec ~/.config/i3/xkb-switch -n
+
+bindsym $mod+q kill
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+period focus mode_toggle
+
+# Mnemonic: Next or Previous node depth-wise.
+bindsym $mod+n focus child
+bindsym $mod+p focus parent
+
+bindsym --whole-window $mod+button2 floating toggle
+
+# Modes (these are actually set up to work like key chords).
+set $mode_layout "Go: [m]ax [f]loat [s]plit [h]orizontal [v]ertical [t]abbed"
+bindsym $mod+g mode $mode_layout
+mode $mode_layout {
+    bindsym m fullscreen toggle; mode "default"
+    bindsym f fullscreen disable; floating toggle; mode "default"
+    bindsym s fullscreen disable; layout toggle split; mode "default"
+    bindsym h fullscreen disable; split h; mode "default"
+    bindsym v fullscreen disable; split v; mode "default"
+    bindsym t fullscreen disable; layout tabbed; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Ctrl+c mode "default"
+}
+
+set $mode_move "Move to next monitor: [c]ontainer [w]orkspace [s]wap"
+bindsym $mod+m mode $mode_move
+mode $mode_move {
+    bindsym c move container to output next; focus output next; mode "default"
+    bindsym w move workspace to output next; mode "default"
+    bindsym s exec --no-startup-id ~/.config/i3/display-swap.sh; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Ctrl+c mode "default"
+}
+
+set $mode_power "Power: [o]ff [r]eboot [s]uspend"
+bindsym $mod+Shift+p mode $mode_power
+mode $mode_power {
+    bindsym o exec --no-startup-id shutdown -h now; mode "default"
+    bindsym r exec --no-startup-id reboot; mode "default"
+    bindsym s exec --no-startup-id systemctl suspend; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Ctrl+c mode "default"
+}
+
+default_border pixel 3
+default_floating_border pixel 3
+gaps inner 6
+gaps outer 3
+smart_borders no_gaps
+
+for_window [class="copyq"] floating enable
+for_window [class="Yad"] floating enable
+for_window [workspace=$ws5] layout tabbed
+
+assign [class="firefox"] $ws2
+assign [class="discord"] $ws3
+assign [class="^Spotify*"] $ws4
+assign [class="Modrinth-app"] $ws5
+
+workspace $ws5 output primary
+
+# Catppuccin Mocha theme.
+set $rosewater #f5e0dc
+set $flamingo #f2cdcd
+set $pink #f5c2e7
+set $mauve #cba6f7
+set $mauve_alpha #cba6f744
+set $red #f38ba8
+set $red_alpha #f38ba844
+set $maroon #eba0ac
+set $peach #fab387
+set $yellow #f9e2af
+set $green #a6e3a1
+set $teal #94e2d5
+set $sky #89dceb
+set $sapphire #74c7ec
+set $blue #89b4fa
+set $lavender #b4befe
+set $text #cdd6f4
+set $subtext1 #bac2de
+set $subtext0 #a6adc8
+set $overlay2 #9399b2
+set $overlay1 #7f849c
+set $overlay0 #6c7086
+set $surface2 #585b70
+set $surface1 #45475a
+set $surface0 #313244
+set $base #1e1e2e
+set $base_alpha #1e1e2ecc
+set $mantle #181825
+set $crust #11111b
+
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
+bar {
+    i3bar_command i3bar --transparency
+    status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks 
+    tray_output primary
+    tray_padding 4
+    separator_symbol "❮"
+    position top
+    strip_workspace_numbers yes
+    colors {
+        background         $base_alpha
+        statusline         $text
+        separator          $red_alpha
+        focused_statusline $text
+        focused_workspace  $base_alpha $base_alpha $green
+        active_workspace   $base_alpha $base_alpha $blue
+        inactive_workspace $base_alpha $base_alpha $overlay1
+        urgent_workspace   $base_alpha $base_alpha $overlay1
+        binding_mode       $base_alpha $base_alpha $subtext0
+    }
+}
