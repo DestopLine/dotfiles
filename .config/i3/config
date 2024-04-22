@@ -173,6 +173,7 @@ assign [class="firefox"] $ws2
 assign [class="discord"] $ws3
 assign [class="^Spotify*"] $ws4
 assign [class="Modrinth-app"] $ws5
+assign [class="^Minecraft*"] $ws5
 
 workspace $ws5 output primary
 
