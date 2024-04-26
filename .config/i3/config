@@ -29,7 +29,7 @@ exec --no-startup-id picom
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id flameshot
 exec --no-startup-id copyq
-exec --no-startup-id "setxkbmap 'us(altgr-intl)','us(alt-intl)' && ~/.config/i3/xkb-switch --i3"
+exec --no-startup-id "setxkbmap 'us(intl)','us(altgr-intl)' && ~/.config/i3/xkb-switch --i3"
 exec discord
 
 # Workspace names
