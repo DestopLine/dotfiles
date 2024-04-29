@@ -1,5 +1,4 @@
 // Original: https://codeberg.org/TGRush/dotfiles/src/branch/catppuccin/rofi/themes/catppuccin-mocha.rasi
-// Changes: `columns: 2` -> 1
 
 * {
     bg-col:  #1e1e2e;
@@ -25,6 +24,19 @@ window {
     border: 3px;
     border-color: @border-col;
     background-color: @bg-col;
+}
+
+message {
+    background-color: @bg-col;
+    text-color: @fg-col;
+}
+
+textbox {
+    background-color: inherit;
+    text-color: inherit;
+    border: 0px 0px 0px;
+    padding: 6px 0px 0px;
+    margin: 10px 0px 0px 20px;
 }
 
 mainbox {
@@ -61,7 +73,7 @@ entry {
 listview {
     border: 0px 0px 0px;
     padding: 6px 0px 0px;
-    margin: 10px 0px 0px 20px;
+    margin: 10px 20px 0px 20px;
     columns: 1;
     lines: 5;
     background-color: @bg-col;
@@ -95,6 +107,6 @@ button {
 }
 
 button selected {
-  background-color: @bg-col;
-  text-color: @blue;
+    background-color: @bg-col;
+    text-color: @blue;
 }
