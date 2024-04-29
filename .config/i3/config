@@ -96,7 +96,6 @@ bindsym Print exec flameshot gui
 bindsym $mod+v exec copyq show
 bindsym $mod+Return exec kitty
 bindsym $mod+space exec rofi -show drun
-bindsym $mod+Shift+space exec dmenu_run
 bindsym $mod+Control+space exec ~/.config/i3/xkb-switch -n
 
 bindsym $mod+q kill
@@ -120,6 +119,18 @@ bindsym $mod+p focus parent
 bindsym --whole-window $mod+button2 floating toggle
 
 # Modes (these are actually set up to work like key chords).
+set $mode_run "Run: [c]alc [d]menu [s]sh"
+bindsym $mod+Shift+space mode $mode_run
+mode $mode_run {
+    bindsym c exec rofi -show calc -no-show-match -no-sort; mode "default"
+    bindsym d exec dmenu_run; floating toggle; mode "default"
+    bindsym s exec rofi -show ssh; floating toggle; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Ctrl+c mode "default"
+}
+
 set $mode_layout "Go: [m]ax [f]loat [s]plit [h]orizontal [v]ertical [t]abbed"
 bindsym $mod+g mode $mode_layout
 mode $mode_layout {
