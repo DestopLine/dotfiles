@@ -123,8 +123,8 @@ set $mode_run "Run: [c]alc [d]menu [s]sh"
 bindsym $mod+Shift+space mode $mode_run
 mode $mode_run {
     bindsym c exec rofi -show calc -no-show-match -no-sort; mode "default"
-    bindsym d exec dmenu_run; floating toggle; mode "default"
-    bindsym s exec rofi -show ssh; floating toggle; mode "default"
+    bindsym d exec dmenu_run; mode "default"
+    bindsym s exec rofi -show ssh; mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
