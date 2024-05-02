@@ -344,7 +344,7 @@
         "PermissionsViewer": {
             "enabled": true,
             "permissionsSortOrder": 0,
-            "defaultPermissionsDropdownState": false
+            "defaultPermissionsDropdownState": true
         },
         "petpet": {
             "enabled": true
@@ -530,6 +530,15 @@
         },
         "ShowHiddenThings": {
             "enabled": false
+        },
+        "BetterSessions": {
+            "enabled": false
+        },
+        "ImplicitRelationships": {
+            "enabled": false
+        },
+        "StreamerModeOnStream": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -542,6 +551,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1713959909786
+        "settingsSyncVersion": 1714427270654
     }
 }
