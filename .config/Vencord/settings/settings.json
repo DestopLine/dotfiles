@@ -1,9 +1,11 @@
 {
     "notifyAboutUpdates": true,
-    "autoUpdate": false,
+    "autoUpdate": true,
     "autoUpdateNotification": true,
     "useQuickCss": true,
-    "themeLinks": [],
+    "themeLinks": [
+        "https://catppuccin.github.io/discord/dist/catppuccin-macchiato.theme.css"
+    ],
     "enabledThemes": [],
     "enableReactDevtools": false,
     "frameless": false,
@@ -551,6 +553,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1714427270654
+        "settingsSyncVersion": 1714916625392
     }
 }
