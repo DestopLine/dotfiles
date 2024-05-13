@@ -3,9 +3,7 @@
     "autoUpdate": true,
     "autoUpdateNotification": true,
     "useQuickCss": true,
-    "themeLinks": [
-        "https://catppuccin.github.io/discord/dist/catppuccin-macchiato.theme.css"
-    ],
+    "themeLinks": [],
     "enabledThemes": [],
     "enableReactDevtools": false,
     "frameless": false,
@@ -48,11 +46,12 @@
             "enabled": false
         },
         "NoTrack": {
-            "enabled": true
+            "enabled": true,
+            "disableAnalytics": true
         },
         "Settings": {
             "enabled": true,
-            "settingsLocation": "aboveActivity"
+            "settingsLocation": "top"
         },
         "SupportHelper": {
             "enabled": true
@@ -522,7 +521,7 @@
             "enabled": false
         },
         "WhoReacted": {
-            "enabled": true
+            "enabled": false
         },
         "Wikisearch": {
             "enabled": false
@@ -541,6 +540,21 @@
         },
         "StreamerModeOnStream": {
             "enabled": false
+        },
+        "ImageLink": {
+            "enabled": false
+        },
+        "PauseInvitesForever": {
+            "enabled": false
+        },
+        "MessageLatency": {
+            "enabled": false
+        },
+        "ReplyTimestamp": {
+            "enabled": false
+        },
+        "VoiceDownload": {
+            "enabled": true
         }
     },
     "notifications": {
@@ -553,6 +567,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1714916625392
+        "settingsSyncVersion": 1715476945974
     }
 }
