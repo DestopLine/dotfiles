@@ -26,11 +26,15 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color 1
 exec --no-startup-id nm-applet
 
 exec --no-startup-id picom
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id sleep 0.5 && nitrogen --restore
 exec --no-startup-id flameshot
 exec --no-startup-id copyq
 exec --no-startup-id "setxkbmap 'us(intl)','us(altgr-intl)' && ~/.config/i3/xkb-switch --i3"
+
+exec kitty
+exec firefox
 exec discord
+exec spotify
 
 # Workspace names
 set $ws1 "1:dev"
@@ -188,6 +192,7 @@ assign [class="Modrinth-app"] $ws5
 assign [class="^Minecraft*"] $ws5
 
 workspace $ws5 output primary
+workspace $ws2 output primary
 workspace $ws1 output primary
 
 # Catppuccin Mocha theme.
