@@ -24,6 +24,9 @@ eval "$(starship init zsh)"
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+ZVM_VI_EDITOR=nvim
 
 # Add in snippets
 zinit snippet OMZP::command-not-found
@@ -37,7 +40,7 @@ zinit light Aloxaf/fzf-tab
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+bindkey -v
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
