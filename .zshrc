@@ -93,5 +93,5 @@ source <(ng completion script)
 
 export VCPKG_ROOT=~/Downloads/vcpkg
 export PATH=$VCPKG_ROOT:$PATH
-
 export PATH=$PATH:/home/destop/.spicetify
+export PATH=$PATH:/usr/local/go/bin
