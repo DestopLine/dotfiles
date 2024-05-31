@@ -336,9 +336,6 @@
         "OverrideForumDefaults": {
             "enabled": false
         },
-        "Party mode 🎉": {
-            "enabled": false
-        },
         "PermissionFreeWill": {
             "enabled": false
         },
@@ -555,6 +552,33 @@
         },
         "VoiceDownload": {
             "enabled": true
+        },
+        "CtrlEnterSend": {
+            "enabled": false
+        },
+        "NoServerEmojis": {
+            "enabled": false
+        },
+        "ShowTimeoutDuration": {
+            "enabled": true
+        },
+        "ValidReply": {
+            "enabled": true
+        },
+        "PartyMode": {
+            "enabled": false
+        },
+        "AutomodContext": {
+            "enabled": false
+        },
+        "CustomIdle": {
+            "enabled": false
+        },
+        "NoDefaultHangStatus": {
+            "enabled": false
+        },
+        "ReplaceGoogleSearch": {
+            "enabled": true
         }
     },
     "notifications": {
@@ -567,6 +591,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1715476945974
+        "settingsSyncVersion": 1716234216042
     }
 }
