@@ -43,8 +43,7 @@ set $ws3 "3:chat"
 set $ws4 "4:music"
 set $ws5 "5:game"
 set $ws6 "6:tool"
-set $ws7 "7:sys"
-set $ws8 "8:misc"
+set $ws7 "7:misc"
 
 # Switch to workspace
 bindsym $mod+a workspace number $ws1
@@ -54,7 +53,6 @@ bindsym $mod+f workspace number $ws4
 bindsym $mod+z workspace number $ws5
 bindsym $mod+x workspace number $ws6
 bindsym $mod+c workspace number $ws7
-bindsym $mod+b workspace number $ws8
 
 # Move focused container to workspace
 bindsym $mod+Shift+a move container to workspace number $ws1
@@ -64,7 +62,6 @@ bindsym $mod+Shift+f move container to workspace number $ws4
 bindsym $mod+Shift+z move container to workspace number $ws5
 bindsym $mod+Shift+x move container to workspace number $ws6
 bindsym $mod+Shift+c move container to workspace number $ws7
-bindsym $mod+Shift+b move container to workspace number $ws8
 
 # This hack makes it possible to "move the border" instead of resizing the container.
 # We are growing to the specified direction and shrinking to the opposite direction.
