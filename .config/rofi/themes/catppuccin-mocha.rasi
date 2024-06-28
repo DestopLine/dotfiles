@@ -1,7 +1,7 @@
 // Original: https://codeberg.org/TGRush/dotfiles/src/branch/catppuccin/rofi/themes/catppuccin-mocha.rasi
 
 * {
-    bg-col:  #1e1e2e;
+    bg-col: #1e1e2e;
     bg-col-light: #181825;
     border-col: #1e1e2e;
     selected-col: #313244;
@@ -10,17 +10,17 @@
     fg-col2: #f38ba8;
     grey: #6c7086;
 
-    width: 600;
     font: "JetBrainsMono Nerd Font 14";
 }
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;
-    text-color:       inherit;
+    text-color: inherit;
 }
 
 window {
-    height: 360px;
+    height: 450px;
+    width: 800px;
     border: 3px;
     border-color: @border-col;
     background-color: @bg-col;
@@ -34,8 +34,7 @@ message {
 textbox {
     background-color: inherit;
     text-color: inherit;
-    border: 0px 0px 0px;
-    padding: 6px 0px 0px;
+    padding: 6px 0px 20px;
     margin: 10px 0px 0px 20px;
 }
 
@@ -90,7 +89,7 @@ element-icon {
 }
 
 element selected {
-    background-color:  @selected-col ;
+    background-color: @selected-col ;
     text-color: @fg-col2  ;
 }
 
