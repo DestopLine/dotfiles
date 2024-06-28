@@ -75,8 +75,6 @@ bindsym $mod+Control+l resize grow right $units; resize shrink left  $units
 bindsym $mod+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Adjust volume.
 set $refresh_vol pkill -RTMIN+10 i3blocks
@@ -98,6 +96,9 @@ bindsym $mod+v exec copyq show
 bindsym $mod+Return exec kitty
 bindsym $mod+space exec rofi -show drun
 bindsym $mod+Control+space exec ~/.config/i3/xkb-switch -n
+bindsym $mod+Control+c exec rofi -show calc -no-show-match -no-sort
+bindsym $mod+Control+d exec dmenu_run
+bindsym $mod+Control+s exec rofi -show ssh
 
 bindsym $mod+q kill
 
@@ -119,19 +120,10 @@ bindsym $mod+p focus parent
 
 bindsym --whole-window $mod+button2 floating toggle
 
+bindsym $mod+Shift+w move workspace to output next
+bindsym $mod+Shift+e exec --no-startup-id ~/.config/i3/display-swap.sh
+
 # Modes (these are actually set up to work like key chords).
-set $mode_run "Run: [c]alc [d]menu [s]sh"
-bindsym $mod+Shift+space mode $mode_run
-mode $mode_run {
-    bindsym c exec rofi -show calc -no-show-match -no-sort; mode "default"
-    bindsym d exec dmenu_run; mode "default"
-    bindsym s exec rofi -show ssh; mode "default"
-
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-    bindsym Ctrl+c mode "default"
-}
-
 set $mode_layout "Go: [m]ax [f]loat [s]plit [h]orizontal [v]ertical [t]abbed"
 bindsym $mod+g mode $mode_layout
 mode $mode_layout {
@@ -147,24 +139,13 @@ mode $mode_layout {
     bindsym Ctrl+c mode "default"
 }
 
-set $mode_move "Move to next monitor: [c]ontainer [w]orkspace [s]wap"
-bindsym $mod+m mode $mode_move
-mode $mode_move {
-    bindsym c move container to output next; focus output next; mode "default"
-    bindsym w move workspace to output next; mode "default"
-    bindsym s exec --no-startup-id ~/.config/i3/display-swap.sh; mode "default"
-
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-    bindsym Ctrl+c mode "default"
-}
-
 set $mode_power "Power: [o]ff [r]eboot [s]uspend"
 bindsym $mod+Shift+p mode $mode_power
 mode $mode_power {
     bindsym o exec --no-startup-id shutdown -h now; mode "default"
     bindsym r exec --no-startup-id reboot; mode "default"
     bindsym s exec --no-startup-id systemctl suspend; mode "default"
+    bindsym e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
