@@ -24,6 +24,17 @@ eval "$(starship init zsh)"
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+
+# Better vi mode
+precmd() {
+  # Set SIGINT to escape while editing a command
+  stty intr '^['
+}
+preexec() {
+  # Now set it to ctrl-c when a command is running
+  stty intr '^C'
+}
+ZVM_VI_ESCAPE_BINDKEY='^C'
 ZVM_INIT_MODE=sourcing # This keeps keybindings from reseting
 ZVM_VI_EDITOR=nvim
 zinit ice depth=1
