@@ -24,9 +24,10 @@ eval "$(starship init zsh)"
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+ZVM_INIT_MODE=sourcing # This keeps keybindings from reseting
+ZVM_VI_EDITOR=nvim
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
-ZVM_VI_EDITOR=nvim
 
 # Add in snippets
 zinit snippet OMZP::command-not-found
