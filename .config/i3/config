@@ -139,7 +139,7 @@ mode $mode_layout {
     bindsym Ctrl+c mode "default"
 }
 
-set $mode_power "Power: [o]ff [r]eboot [s]uspend"
+set $mode_power "Power: [o]ff [r]eboot [s]uspend [e]xit"
 bindsym $mod+Shift+p mode $mode_power
 mode $mode_power {
     bindsym o exec --no-startup-id shutdown -h now; mode "default"
