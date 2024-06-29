@@ -5,19 +5,18 @@ sudo apt install stow
 cd
 git clone git@github.com:DestopLine/dotfiles.git
 cd dotfiles
-stow .
+stow i3 zsh  # stow i3 and zsh related packages
+stow */      # OR stow everything
 ```
 NOTE: `.bashrc` (or other files) might already exist, to avoid stow aborting, either remove the files:
 ```sh
-cd
-rm .bashrc
-cd dotfiles
-stow .
+rm ~/.bashrc
+stow bash
 ```
 or use adopt and restore:
 ```sh
-stow --adopt .
-git restore .
+stow --adopt bash
+git restore bash
 ```
 
 ## Neovim
