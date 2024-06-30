@@ -27,8 +27,8 @@ zinit light zsh-users/zsh-autosuggestions
 
 # Better vi mode
 precmd() {
-  # Set SIGINT to escape while editing a command
-  stty intr '^['
+  # Set SIGINT to ctrl-d while editing a command
+  stty intr '^D'
 }
 preexec() {
   # Now set it to ctrl-c when a command is running
