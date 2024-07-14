@@ -86,8 +86,6 @@ alias find='fdfind'
 alias py='python3.12'
 alias pip='py -m pip'
 
-export PATH="$PATH:/opt"
-
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
