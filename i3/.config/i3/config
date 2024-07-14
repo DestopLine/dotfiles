@@ -29,7 +29,7 @@ exec --no-startup-id picom
 exec --no-startup-id sleep 0.5 && nitrogen --restore
 exec --no-startup-id flameshot
 exec --no-startup-id copyq
-exec --no-startup-id "setxkbmap 'us(intl)','us(altgr-intl)' && ~/.config/i3/xkb-switch --i3"
+exec --no-startup-id "setxkbmap 'us(intl)','us(altgr-intl)' && xkb-switch --i3"
 
 exec kitty
 exec firefox
@@ -95,7 +95,7 @@ bindsym Print exec flameshot gui
 bindsym $mod+v exec copyq show
 bindsym $mod+Return exec kitty
 bindsym $mod+space exec rofi -show drun
-bindsym $mod+Control+space exec ~/.config/i3/xkb-switch -n
+bindsym $mod+Control+space exec xkb-switch -n
 bindsym $mod+Control+c exec rofi -show calc -no-show-match -no-sort
 bindsym $mod+Control+d exec dmenu_run
 bindsym $mod+Control+s exec rofi -show ssh
