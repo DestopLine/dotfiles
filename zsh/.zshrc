@@ -82,7 +82,6 @@ alias ls='eza'
 alias ll='eza -alh'
 alias tree='eza --tree'
 alias cat='bat'
-alias find='fdfind'
 alias py='python3.12'
 alias pip='py -m pip'
 
