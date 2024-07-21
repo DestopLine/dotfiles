@@ -84,6 +84,7 @@ alias tree='eza --tree'
 alias cat='bat'
 alias py='python3.12'
 alias pip='py -m pip'
+alias dfr='df -h | grep -E "(^Filesystem|/$)"'
 
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS=" \
