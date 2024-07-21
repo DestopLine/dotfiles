@@ -252,7 +252,9 @@
             "ignoreSelf": false,
             "ignoreUsers": "",
             "ignoreChannels": "",
-            "ignoreGuilds": ""
+            "ignoreGuilds": "",
+            "collapseDeleted": false,
+            "inlineEdits": true
         },
         "MessageTags": {
             "enabled": false
@@ -607,6 +609,15 @@
         },
         "UserSettingsAPI": {
             "enabled": true
+        },
+        "ConsoleJanitor": {
+            "enabled": true
+        },
+        "MentionAvatars": {
+            "enabled": false
+        },
+        "ShowAllRoles": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -619,6 +630,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1719533974097
+        "settingsSyncVersion": 1721086560203
     }
 }
