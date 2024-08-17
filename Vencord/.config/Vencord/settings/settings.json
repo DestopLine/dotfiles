@@ -142,7 +142,7 @@
             "enabled": true
         },
         "Experiments": {
-            "enabled": false
+            "enabled": true
         },
         "F8Break": {
             "enabled": false
@@ -604,19 +604,21 @@
         "Summaries": {
             "enabled": false
         },
-        "WatchTogetherAdblock": {
-            "enabled": false
-        },
         "UserSettingsAPI": {
             "enabled": true
         },
         "ConsoleJanitor": {
-            "enabled": true
+            "enabled": true,
+            "disableNoisyLoggers": false,
+            "disableSpotifyLogger": true
         },
         "MentionAvatars": {
             "enabled": false
         },
         "ShowAllRoles": {
+            "enabled": false
+        },
+        "YoutubeAdblock": {
             "enabled": false
         }
     },
@@ -630,6 +632,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1721086560203
+        "settingsSyncVersion": 1723246816400
     }
 }
