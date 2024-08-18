@@ -98,7 +98,6 @@ source /usr/share/nvm/init-nvm.sh
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
-export PATH=$VCPKG_ROOT:$PATH
 export PATH=$PATH:/home/destop/.spicetify
 export PATH=$PATH:/usr/local/go/bin
 
