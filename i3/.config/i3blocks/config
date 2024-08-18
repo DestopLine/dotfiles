@@ -41,14 +41,14 @@ markup=none
 # Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
 # Set to %any to automatically pick (Requires playerctl >=2.1.1)
 [mediaplayer]
-label= 
+label=  
 instance=spotify
 interval=5
 signal=11
 
 [volume]
 command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME 2%
-label=󰕾
+label=󰕾 
 interval=once
 signal=10
 
@@ -61,10 +61,10 @@ signal=10
 [calendar]
 command=$SCRIPT_DIR/calendar/calendar -f '+%a %d/%m/%Y' -H 180 -W 220
 interval=5
-label=󱨰
+label=󱨰 
 
 [time]
-label= 
+label=  
 command=date '+%I:%M:%S %p  '
 interval=5
 
