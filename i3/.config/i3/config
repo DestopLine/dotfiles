@@ -97,6 +97,7 @@ bindsym $mod+Control+d exec dmenu_run
 bindsym $mod+Control+s exec rofi -show ssh
 
 bindsym $mod+q kill
+bindsym --release $mod+Shift+q exec xkill
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
