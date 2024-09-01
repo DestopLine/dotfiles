@@ -142,7 +142,8 @@
             "enabled": true
         },
         "Experiments": {
-            "enabled": true
+            "enabled": true,
+            "toolbarDevMenu": false
         },
         "F8Break": {
             "enabled": false
@@ -192,7 +193,7 @@
             "enabled": false
         },
         "GifPaste": {
-            "enabled": false
+            "enabled": true
         },
         "GreetStickerPicker": {
             "enabled": false
@@ -620,6 +621,15 @@
         },
         "AlwaysExpandRoles": {
             "enabled": false
+        },
+        "CopyFileContents": {
+            "enabled": false
+        },
+        "NoMaskedUrlPaste": {
+            "enabled": false
+        },
+        "StickerPaste": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -632,6 +642,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1724975606447
+        "settingsSyncVersion": 1725196178175
     }
 }
