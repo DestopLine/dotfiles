@@ -102,3 +102,4 @@ export PATH=$PATH:/home/destop/.spicetify
 export PATH=$PATH:/usr/local/go/bin
 
 export NVIM_PROFILE='home'
+export EDITOR=nvim
