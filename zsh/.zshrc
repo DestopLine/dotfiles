@@ -99,6 +99,7 @@ source /usr/share/nvm/init-nvm.sh
 source <(ng completion script)
 
 export PATH=$PATH:/home/destop/.spicetify
+export PATH=$PATH:/home/destop/.dotnet/tools
 export PATH=$PATH:/usr/local/go/bin
 
 export NVIM_PROFILE='home'
