@@ -12,6 +12,9 @@ symbol = " "
 [rust]
 symbol = " "
 
+[zig]
+symbol = " "
+
 [package]
 symbol = " "
 
