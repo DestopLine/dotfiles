@@ -154,7 +154,7 @@ default_border pixel 3
 default_floating_border pixel 3
 gaps inner 6
 gaps outer 3
-smart_borders no_gaps
+hide_edge_borders smart_no_gaps
 
 for_window [class="copyq"] floating enable
 for_window [class="Yad"] floating enable
