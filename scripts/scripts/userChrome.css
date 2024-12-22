@@ -1,0 +1,8 @@
+/*** Hide Tab Close buttons ***/
+.tabbrowser-tab .tab-close-button {
+  visibility: collapse !important;
+}
+
+#tabbrowser-arrowscrollbox-periphery {
+  visibility: collapse !important;
+}
