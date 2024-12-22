@@ -1,7 +1,8 @@
 # dotfiles
 My Linux dotfiles, manageable with GNU Stow:
+- Arch: `sudo pacman -S stow`
+- Debian: `sudo apt install stow`
 ```sh
-sudo apt install stow
 cd
 git clone git@github.com:DestopLine/dotfiles.git
 cd dotfiles
