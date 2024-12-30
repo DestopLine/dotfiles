@@ -70,6 +70,7 @@ setopt hist_find_no_dups
 setopt hist_save_no_dups
 
 export PATH=$PATH:~/.fzf/bin
+export PATH=$PATH:~/.cargo/bin
 
 eval "$(dircolors)"
 zstyle ':completion:*' matcher-list 'm:{z-a}={A-Za-z}'
