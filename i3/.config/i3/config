@@ -2,6 +2,8 @@
 # Reference: https://i3wm.org/docs/userguide.html
 
 set $mod Mod4
+set $terminal wezterm
+
 floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
@@ -27,7 +29,7 @@ exec --no-startup-id flameshot
 exec --no-startup-id copyq
 exec_always --no-startup-id python3 ~/.config/i3/ipc.py
 
-exec kitty
+exec $terminal
 exec firefox
 exec discord
 exec spotify
@@ -89,7 +91,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous && $refresh_player
 # Launch program.
 bindsym Print exec flameshot gui
 bindsym $mod+v exec copyq show
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec $terminal
 bindsym $mod+space exec rofi -show drun
 bindsym $mod+Control+space exec setxkbmap -query | grep -q "us(altgr-intl)" && setxkbmap "us(intl)" || setxkbmap "us(altgr-intl)"
 bindsym $mod+Control+c exec rofi -show calc -no-show-match -no-sort
@@ -162,7 +164,7 @@ for_window [class="Blueman-manager"] floating enable
 for_window [class="pavucontrol"] floating enable
 for_window [workspace=$ws5] layout tabbed
 
-assign [class="kitty"] $ws1
+assign [class="$terminal"] $ws1
 assign [class="firefox"] $ws2
 assign [class="discord"] $ws3
 assign [class="^Spotify*"] $ws4
