@@ -86,6 +86,7 @@ alias cat='bat'
 alias py='python3.13'
 alias pip='py -m pip'
 alias dfr='df -h | grep -E "(^Filesystem|/$)"'
+alias :q='exit'
 
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS=" \
