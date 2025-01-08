@@ -93,6 +93,7 @@ configuration {
     // kb-page-next: "Page_Down";
     kb-row-first: "Control+g";
     kb-row-last: "Control+G";
+    kb-secondary-copy: "";
     // kb-row-select: "Control+space";
     kb-screenshot: "Print";
     // kb-ellipsize: "Alt+period";
