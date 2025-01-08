@@ -35,6 +35,7 @@ config.font_rules = {
     }),
   },
 }
+config.enable_kitty_graphics = true
 
 config.tab_bar_at_bottom = true
 
@@ -82,15 +83,14 @@ config.window_padding = {
 }
 
 wezterm.on("update-status", function(window, pane)
-  wezterm.log_info("hhh")
   local overrides = window:get_config_overrides() or {}
   overrides.enable_scroll_bar = not pane:is_alt_screen_active()
   window:set_config_overrides(overrides)
 end)
 
-config.set_environment_variables = {
-  COMSPEC = "pwsh.exe",
-}
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  config.default_prog = { "pwsh" }
+end
 
 local mod = "CTRL|SHIFT"
 local act = wezterm.action
@@ -206,6 +206,14 @@ config.keys = {
     mods = "CTRL",
     action = act.SendKey({
       key = "w",
+      mods = "CTRL",
+    }),
+  },
+  {
+    key = ".",
+    mods = "CTRL",
+    action = act.SendKey({
+      key = ".",
       mods = "CTRL",
     }),
   },
