@@ -87,6 +87,7 @@ alias py='python3.13'
 alias pip='py -m pip'
 alias dfr='df -h | grep -E "(^Filesystem|/$)"'
 alias :q='exit'
+alias pacdiff='DIFFPROG="nvim -d" pacdiff -s'
 
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS=" \
