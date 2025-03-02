@@ -4,6 +4,6 @@ if ! command -v yay &> /dev/null; then
 	exit 1
 fi
 
-yay -S --needed git neovim fd ripgrep xclip ttf-jetbrains-mono-nerd kitty unzip luarocks imagemagick nvm
+yay -S --needed git neovim fd ripgrep xclip ttf-jetbrains-mono-nerd unzip imagemagick nvm wget tree-sitter-cli
 source /usr/share/nvm/init-nvm.sh
 nvm install --lts
