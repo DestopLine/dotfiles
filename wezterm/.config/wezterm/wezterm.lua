@@ -107,88 +107,88 @@ local act = wezterm.action
 config.disable_default_key_bindings = true
 config.keys = {
   {
-    key = "r",
     mods = mod,
+    key = "r",
     action = act.ReloadConfiguration,
   },
   {
-    key = "+",
     mods = mod,
+    key = "+",
     action = act.IncreaseFontSize,
   },
   {
-    key = "_",
     mods = mod,
+    key = "_",
     action = act.DecreaseFontSize,
   },
   {
-    key = "Backspace",
     mods = mod,
+    key = "Backspace",
     action = act.ResetFontSize,
   },
   {
-    key = "h",
     mods = mod,
+    key = "h",
     action = act.ActivateTabRelative(-1),
   },
   {
-    key = "l",
     mods = mod,
+    key = "l",
     action = act.ActivateTabRelative(1),
   },
   {
-    key = "<",
     mods = mod,
+    key = "<",
     action = act.MoveTabRelative(-1),
   },
   {
-    key = ">",
     mods = mod,
+    key = ">",
     action = act.MoveTabRelative(1),
   },
   {
-    key = "j",
     mods = mod,
+    key = "j",
     action = act.ScrollByLine(4),
   },
   {
-    key = "k",
     mods = mod,
+    key = "k",
     action = act.ScrollByLine(-4),
   },
   {
-    key = "u",
     mods = mod,
+    key = "u",
     action = act.ScrollByPage(-0.5),
   },
   {
-    key = "d",
     mods = mod,
+    key = "d",
     action = act.ScrollByPage(0.5),
   },
   {
-    key = "g",
     mods = mod,
+    key = "g",
     action = act.ScrollToBottom,
   },
   {
-    key = "f",
     mods = mod,
+    key = "f",
     action = act.ScrollToTop,
   },
   {
-    key = "t",
     mods = mod,
+    key = "t",
     action = act.SpawnTab("CurrentPaneDomain"),
   },
   {
-    key = "n",
     mods = mod,
+    key = "n",
     action = act.SpawnCommandInNewTab({ cwd = wezterm.home_dir }),
   },
   {
-    key = "q",
     mods = mod,
+    key = "q",
     action = act.Multiple({
       act.CloseCurrentTab({ confirm = true }),
       wezterm.action_callback(function(window, pane)
@@ -197,47 +197,47 @@ config.keys = {
     }),
   },
   {
-    key = "c",
     mods = mod,
+    key = "c",
     action = act.CopyTo("Clipboard"),
   },
   {
-    key = "v",
     mods = mod,
+    key = "v",
     action = act.PasteFrom("Clipboard"),
   },
   {
-    key = "z",
     mods = mod,
+    key = "z",
     action = act.ScrollToPrompt(-1),
   },
   {
-    key = "x",
     mods = mod,
+    key = "x",
     action = act.ScrollToPrompt(1),
   },
   {
+    mods = "CTRL",
     key = "Backspace",
-    mods = "CTRL",
     action = act.SendKey({
+      mods = "CTRL",
       key = "w",
-      mods = "CTRL",
     }),
   },
   {
+    mods = "CTRL",
     key = ".",
-    mods = "CTRL",
     action = act.SendKey({
-      key = ".",
       mods = "CTRL",
+      key = ".",
     }),
   },
   {
-    key = "Space",
     mods = "CTRL",
+    key = "Space",
     action = act.SendKey({
-      key = "Space",
       mods = "CTRL",
+      key = "Space",
     }),
   },
   {
@@ -245,8 +245,8 @@ config.keys = {
     action = act.ToggleFullScreen,
   },
   {
-    key = "p",
     mods = mod,
+    key = "p",
     action = act.ActivateCommandPalette,
   },
 }
