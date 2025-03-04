@@ -4,7 +4,16 @@ local config = wezterm.config_builder()
 config.audible_bell = "Disabled"
 config.color_scheme = "Catppuccin Mocha"
 
-config.font = wezterm.font("JetBrains Mono NerdFont", {
+local is_os_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
+
+local font
+if is_os_windows then
+  font = "JetBrainsMono Nerd Font"
+else
+  font = "JetBrains Mono NerdFont"
+end
+
+config.font = wezterm.font(font, {
   weight = "Medium",
 })
 config.font_size = 13
@@ -12,7 +21,7 @@ config.font_rules = {
   {
     intensity = "Bold",
     font = wezterm.font({
-      family = "JetBrains Mono NerdFont",
+      family = font,
       weight = "ExtraBold",
     }),
   },
@@ -20,7 +29,7 @@ config.font_rules = {
     intensity = "Normal",
     italic = true,
     font = wezterm.font({
-      family = "JetBrains Mono NerdFont",
+      family = font,
       weight = "Medium",
       italic = true,
     }),
@@ -29,49 +38,50 @@ config.font_rules = {
     intensity = "Bold",
     italic = true,
     font = wezterm.font({
-      family = "JetBrains Mono NerdFont",
+      family = font,
       weight = "ExtraBold",
       italic = true,
     }),
   },
 }
-config.enable_kitty_graphics = true
 
-config.tab_bar_at_bottom = true
-
-wezterm.plugin.require("https://github.com/nekowinston/wezterm-bar").apply_to_config(config, {
-  position = "bottom",
-  max_width = 32,
-  dividers = "slant_right", -- or "slant_left", "arrows", "rounded", false
-  indicator = {
-    leader = {
-      enabled = false,
-      off = " ",
-      on = " ",
-    },
-    mode = {
-      enabled = true,
-      names = {
-        resize_mode = "RESIZE",
-        copy_mode = "VISUAL",
-        search_mode = "SEARCH",
-      },
-    },
-  },
-  tabs = {
-    numerals = "arabic", -- or "roman"
-    pane_count = false, -- or "subscript", false
-    brackets = {
-      active = { "", ":" },
-      inactive = { "", ":" },
-    },
-  },
-  clock = { -- note that this overrides the whole set_right_status
-    enabled = false,
-    format = "%H:%M", -- use https://wezfurlong.org/wezterm/config/lua/wezterm.time/Time/format.html
-  },
-})
 config.use_fancy_tab_bar = false
+config.tab_max_width = 100
+wezterm.on("format-tab-title", function(tab, tabs)
+  local active_tab_index
+  for _, curr_tab in ipairs(tabs) do
+    if curr_tab.is_active == true then
+      active_tab_index = curr_tab.tab_index
+      break
+    end
+  end
+
+  local title = tab.tab_title
+
+  if title == nil or #title == 0 then
+    title = tab.active_pane.title
+  end
+
+  local text
+  if tab.tab_index == active_tab_index - 1 then
+    text = " " .. title .. " "
+  elseif tab.tab_index == active_tab_index then
+    if tab.tab_index == 0 then
+      text = " " .. title .. " "
+    else
+      text = " " .. title .. " "
+    end
+  else
+    text = " " .. title .. "  "
+  end
+
+  return {
+    { Attribute = { Intensity = "Bold" } },
+    { Text = text },
+  }
+end)
+
+config.enable_kitty_graphics = true
 config.show_new_tab_button_in_tab_bar = false
 config.show_tab_index_in_tab_bar = false
 config.enable_scroll_bar = true
@@ -88,7 +98,7 @@ wezterm.on("update-status", function(window, pane)
   window:set_config_overrides(overrides)
 end)
 
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+if is_os_windows then
   config.default_prog = { "pwsh" }
 end
 
@@ -179,7 +189,12 @@ config.keys = {
   {
     key = "q",
     mods = mod,
-    action = act.CloseCurrentTab({ confirm = true }),
+    action = act.Multiple({
+      act.CloseCurrentTab({ confirm = true }),
+      wezterm.action_callback(function(window, pane)
+        wezterm.emit_event("format-tab-title", window, pane)
+      end),
+    }),
   },
   {
     key = "c",
