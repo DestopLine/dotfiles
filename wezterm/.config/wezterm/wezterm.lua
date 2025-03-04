@@ -2,6 +2,9 @@ local wezterm = require("wezterm") --[[@as table]]
 local config = wezterm.config_builder()
 
 config.audible_bell = "Disabled"
+local catppuccin = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+catppuccin.tab_bar.inactive_tab.bg_color = catppuccin.tab_bar.background
+config.color_schemes = { ["Catppuccin Mocha"] = catppuccin }
 config.color_scheme = "Catppuccin Mocha"
 
 local is_os_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
