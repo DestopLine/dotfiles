@@ -233,6 +233,14 @@ config.keys = {
     }),
   },
   {
+    key = "Space",
+    mods = "CTRL",
+    action = act.SendKey({
+      key = "Space",
+      mods = "CTRL",
+    }),
+  },
+  {
     key = "F11",
     action = act.ToggleFullScreen,
   },
