@@ -4,7 +4,7 @@ if ! command -v yay &> /dev/null; then
 	exit 1
 fi
 
-yay -S --needed git xclip ttf-jetbrains-mono-nerd kitty zsh starship fd ripgrep eza bat fzf zoxide python nvm
+yay -S --needed git xclip ttf-jetbrains-mono-nerd kitty zsh starship fd ripgrep eza bat fzf zoxide python nvm btop yazi
 source /usr/share/nvm/init-nvm.sh
 nvm install --lts
 npm i -g @angular/cli
