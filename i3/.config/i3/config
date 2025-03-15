@@ -2,7 +2,7 @@
 # Reference: https://i3wm.org/docs/userguide.html
 
 set $mod Mod4
-set $terminal wezterm
+set $terminal kitty
 
 floating_modifier $mod
 
