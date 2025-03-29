@@ -3,7 +3,9 @@
     "autoUpdate": true,
     "autoUpdateNotification": true,
     "useQuickCss": true,
-    "themeLinks": [],
+    "themeLinks": [
+        "https://raw.githubusercontent.com/surgedevs/visual-refresh-compact-title-bar/refs/heads/main/desktop.css"
+    ],
     "enabledThemes": [],
     "enableReactDevtools": false,
     "frameless": false,
@@ -450,7 +452,21 @@
             "enabled": false
         },
         "TextReplace": {
-            "enabled": true
+            "enabled": true,
+            "stringRules": [
+                {
+                    "find": "",
+                    "replace": "",
+                    "onlyIfIncludes": ""
+                }
+            ],
+            "regexRules": [
+                {
+                    "find": "",
+                    "replace": "",
+                    "onlyIfIncludes": ""
+                }
+            ]
         },
         "ThemeAttributes": {
             "enabled": false
@@ -602,7 +618,9 @@
         "ConsoleJanitor": {
             "enabled": true,
             "disableNoisyLoggers": false,
-            "disableSpotifyLogger": true
+            "disableSpotifyLogger": true,
+            "disableLoggers": false,
+            "whitelistedLoggers": "GatewaySocket; Routing/Utils"
         },
         "MentionAvatars": {
             "enabled": false
@@ -630,6 +648,21 @@
         },
         "HideMedia": {
             "enabled": false
+        },
+        "DynamicImageModalAPI": {
+            "enabled": false
+        },
+        "AccountPanelServerProfile": {
+            "enabled": true
+        },
+        "FixImagesQuality": {
+            "enabled": false
+        },
+        "FullUserInChatbox": {
+            "enabled": false
+        },
+        "IrcColors": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -642,6 +675,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1738508482846
-    }
+        "settingsSyncVersion": 1743217785478
+    },
+    "eagerPatches": false
 }
