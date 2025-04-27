@@ -1,0 +1,85 @@
+// -*- mode: jsonc -*-
+{
+  // "layer": "top", // Waybar at top layer
+  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  // "width": 1280, // Waybar width
+  "spacing": 4, // Gaps between modules (4px)
+  // Choose the order of the modules
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/submap"
+  ],
+  "modules-center": [
+    "custom/music"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "clock",
+    "clock#date",
+    "tray"
+  ],
+  // Modules configuration
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "warp-on-scroll": false,
+    "format": "{name}",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "format-icons": {
+      "1": " ",
+      "2": "󰈹 ",
+      "3": " ",
+      "4": " ",
+      "5": "󰓓 ",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
+  },
+  "hyprland/submap": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10
+  },
+  "clock": {
+    // "timezone": "America/New_York",
+    "format": "{:%I:%M:%S %p}",
+    "interval": 5
+  },
+  "clock#date": {
+    "format": "{:%a %d/%m/%Y}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "{icon} {volume}% {format_source}",
+    "format-bluetooth-muted": "{icon}󰂲 {format_source}",
+    "format-muted": "󰝟 {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "󱡏",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/music": {
+    "format": "  {}",
+    "escape": true,
+    "interval": 5,
+    "tooltip": false,
+    "exec": "playerctl metadata --player=spotify --format='{{ artist }} - {{ title }}'",
+    "on-click": "playerctl play-pause",
+    "max-length": 80
+  }
+}

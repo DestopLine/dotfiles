@@ -1,0 +1,97 @@
+@import "mocha.css";
+
+* {
+  font-family: JetBrainsMono NF Medium;
+  font-weight: 600;
+  font-size: 17px;
+  min-height: 0;
+}
+
+#waybar {
+  background: alpha(@base, 0.7);
+  color: @text;
+  margin: 5px 5px;
+}
+
+#workspaces,
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#clock.date,
+#battery,
+#pulseaudio,
+#custom-lock,
+#custom-power {
+  background-color: @surface0;
+  border: 2px solid @surface2;
+  border-radius: 1rem;
+  padding: 0.2rem 1rem;
+  margin: 5px 0.4rem;
+}
+
+#workspaces {
+  margin-left: 1rem;
+  padding: 0.2rem 0.2rem;
+}
+
+#workspaces button {
+  color: @overlay2;
+  border-radius: 0.7rem;
+  padding: 0.2rem 0.8rem;
+  margin: 0.1rem 0.3rem;
+  transition: all 0.2s ease-out;
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  border: none;
+}
+
+#workspaces button.active {
+  color: @crust;
+  background-color: @subtext1;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+  background-color: @surface2;
+}
+
+#workspaces button.active:hover {
+  color: @crust;
+  background-color: @text;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+#workspaces button:first-child {
+  margin-left: 0.1rem;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+#workspaces button:last-child {
+  margin-right: 0.1rem;
+}
+
+#clock {
+  color: @blue;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-right: 0;
+}
+
+#clock.date {
+  color: @mauve;
+  border-radius: 0px 1rem 1rem 0px;
+  margin-left: 0;
+}
+
+#pulseaudio {
+  color: @maroon;
+}
+
+#custom-music {
+  color: @green;
+}
+
+#tray {
+  margin-right: 1rem;
+}
