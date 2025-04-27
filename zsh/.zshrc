@@ -70,7 +70,7 @@ setopt hist_find_no_dups
 setopt hist_save_no_dups
 
 eval "$(dircolors)"
-zstyle ':completion:*' matcher-list 'm:{z-a}={A-Za-z}'
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
