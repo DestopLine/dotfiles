@@ -69,9 +69,6 @@ setopt hist_ignore_all_dups
 setopt hist_find_no_dups
 setopt hist_save_no_dups
 
-export PATH=$PATH:~/.fzf/bin
-export PATH=$PATH:~/.cargo/bin
-
 eval "$(dircolors)"
 zstyle ':completion:*' matcher-list 'm:{z-a}={A-Za-z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -101,9 +98,8 @@ source /usr/share/nvm/init-nvm.sh
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
-export PATH=$PATH:~/.spicetify
 export PATH=$PATH:~/.dotnet/tools
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/.cargo/bin
 
 export NVIM_PROFILE='home'
 export EDITOR=nvim
