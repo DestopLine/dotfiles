@@ -101,8 +101,8 @@ source /usr/share/nvm/init-nvm.sh
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
-export PATH=$PATH:/home/destop/.spicetify
-export PATH=$PATH:/home/destop/.dotnet/tools
+export PATH=$PATH:~/.spicetify
+export PATH=$PATH:~/.dotnet/tools
 export PATH=$PATH:/usr/local/go/bin
 
 export NVIM_PROFILE='home'
