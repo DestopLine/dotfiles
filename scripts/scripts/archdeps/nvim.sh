@@ -7,5 +7,5 @@ fi
 yay -S --needed git neovim fd ripgrep xclip ttf-jetbrains-mono-nerd unzip imagemagick nvm wget tree-sitter-cli jq dotnet-sdk
 source /usr/share/nvm/init-nvm.sh
 nvm install --lts
-dotnet tool install dotnet-outdated-tool
-dotnet tool install dotnet-script
+dotnet tool install -g dotnet-outdated-tool
+dotnet tool install -g dotnet-script
