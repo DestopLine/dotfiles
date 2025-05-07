@@ -13,6 +13,7 @@
     "custom/music"
   ],
   "modules-right": [
+    "battery",
     "pulseaudio",
     "clock",
     "clock#date",
@@ -53,6 +54,18 @@
     "format": "{:%a %d/%m/%Y}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "interval": 1,
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󱟢 100%",
+    "format-alt": "{power} W",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
