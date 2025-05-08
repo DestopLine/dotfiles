@@ -77,6 +77,22 @@
   margin-right: 0;
 }
 
+#battery.plugged {
+  color: @teal;
+}
+
+#battery.charging {
+  color: @lavender;
+}
+
+#battery.warning {
+  color: @yellow;
+}
+
+#battery.critical {
+  color: @red;
+}
+
 #pulseaudio {
   border-radius: 0 1rem 1rem 0;
   margin-left: 0;
