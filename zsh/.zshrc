@@ -55,6 +55,7 @@ zinit light Aloxaf/fzf-tab
 bindkey -v
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
+bindkey '^H' backward-kill-word
 
 # Keep 5000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=5000
