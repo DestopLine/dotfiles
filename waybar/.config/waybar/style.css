@@ -3,41 +3,45 @@
 * {
   font-family: JetBrainsMono NF Medium;
   font-weight: 600;
-  font-size: 17px;
+  font-size: 15px;
   min-height: 0;
 }
 
-#waybar {
-  background: alpha(@base, 0.7);
+window#waybar {
+  /* background: alpha(@base, 0.7); */
+  background: transparent;
   color: @text;
-  margin: 5px 5px;
 }
 
-#workspaces,
-#custom-music,
-#tray,
-#backlight,
-#clock,
-#clock.date,
-#battery,
-#pulseaudio,
-#custom-lock,
-#custom-power {
+.module:first-child {
+  margin-left: 6px;
+}
+
+.module:last-child {
+  margin-right: 6px;
+}
+
+.module {
   background-color: @surface0;
   border: 2px solid @surface2;
-  border-radius: 1rem;
+  border-radius: 10px;
   padding: 0.2rem 1rem;
-  margin: 5px 0.4rem;
+  margin: 6px 0.4rem 0 0.4rem;
+  transition: border 0.2s ease-out;
+  /* box-shadow: 10px 5px 5px #1a1a1aee; */
+}
+
+.module:hover {
+  border: 2px solid @mauve;
 }
 
 #workspaces {
-  margin-left: 1rem;
   padding: 0.2rem 0.2rem;
 }
 
 #workspaces button {
   color: @overlay2;
-  border-radius: 0.7rem;
+  border-radius: 0.5rem;
   padding: 0.2rem 0.8rem;
   margin: 0.1rem 0.3rem;
   transition: all 0.2s ease-out;
@@ -72,9 +76,16 @@
   margin-right: 0.1rem;
 }
 
-#battery {
-  border-radius: 1rem 0 0 1rem;
+#battery,
+#clock {
+  border-radius: 10px 0 0 10px;
   margin-right: 0;
+}
+
+#pulseaudio,
+#clock.date {
+  border-radius: 0 10px 10px 0;
+  margin-left: 0;
 }
 
 #battery.plugged {
@@ -94,30 +105,21 @@
 }
 
 #pulseaudio {
-  border-radius: 0 1rem 1rem 0;
-  margin-left: 0;
+  color: @maroon;
 }
 
 #clock {
   color: @blue;
-  border-radius: 1rem 0 0 1rem;
-  margin-right: 0;
 }
 
 #clock.date {
   color: @mauve;
-  border-radius: 0 1rem 1rem 0;
-  margin-left: 0;
-}
-
-#pulseaudio {
-  color: @maroon;
 }
 
 #custom-music {
   color: @green;
 }
 
-#tray {
-  margin-right: 1rem;
+#custom-gamepad-battery {
+  color: @sky;
 }

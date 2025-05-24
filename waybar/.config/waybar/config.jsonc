@@ -6,11 +6,12 @@
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
-    "hyprland/workspaces",
+    "custom/music",
+    "custom/gamepad-battery",
     "hyprland/submap"
   ],
   "modules-center": [
-    "custom/music"
+    "hyprland/workspaces"
   ],
   "modules-right": [
     "battery",
@@ -67,6 +68,12 @@
     "format-alt": "{power} W",
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
   },
+  "custom/gamepad-battery": {
+    "exec": "cat /sys/class/power_supply/ps-controller-battery-*/capacity | head --lines=1",
+    "hide-empty-text": true,
+    "format": "󰊴 {}%",
+    "interval": 5
+  },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{icon} {volume}%",
@@ -92,7 +99,7 @@
     "interval": 5,
     "tooltip": false,
     "exec": "playerctl metadata --player=spotify --format='{{ artist }} - {{ title }}'",
-    "on-click": "playerctl play-pause",
+    "on-click": "playerctl play-pause -p spotify",
     "max-length": 80
   }
 }
