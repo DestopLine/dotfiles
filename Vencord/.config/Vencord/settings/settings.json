@@ -438,7 +438,7 @@
             "enabled": false
         },
         "SpotifyCrack": {
-            "enabled": true,
+            "enabled": false,
             "noSpotifyAutoPause": true,
             "keepSpotifyActivityOnIdle": false
         },
@@ -675,7 +675,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1743217785478
+        "settingsSyncVersion": 1748215056142
     },
     "eagerPatches": false
 }
