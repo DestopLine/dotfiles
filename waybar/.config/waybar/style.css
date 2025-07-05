@@ -116,7 +116,7 @@ window#waybar {
   color: @mauve;
 }
 
-#custom-music {
+#mpris {
   color: @green;
 }
 

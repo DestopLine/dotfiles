@@ -6,7 +6,7 @@
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
-    "custom/music",
+    "mpris",
     "custom/gamepad-battery",
     "hyprland/submap"
   ],
@@ -93,13 +93,10 @@
     },
     "on-click": "pavucontrol"
   },
-  "custom/music": {
-    "format": "  {}",
-    "escape": true,
-    "interval": 5,
-    "tooltip": false,
-    "exec": "playerctl metadata --player=spotify --format='{{ artist }} - {{ title }}'",
-    "on-click": "playerctl play-pause -p spotify",
+  "mpris": {
+    "format": "  {artist} - {title}",
+    "player": "spotify",
+    "interval": 1,
     "max-length": 80
   }
 }
