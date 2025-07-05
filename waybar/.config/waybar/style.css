@@ -13,22 +13,22 @@ window#waybar {
   color: @text;
 }
 
-.module:first-child {
-  margin-left: 6px;
-}
-
-.module:last-child {
-  margin-right: 6px;
-}
-
 .module {
-  background-color: @surface0;
+  background-color: alpha(@surface0, 0.85);
   border: 2px solid @surface2;
   border-radius: 10px;
   padding: 0.2rem 1rem;
   margin: 6px 0.4rem 0 0.4rem;
   transition: border 0.2s ease-out;
   /* box-shadow: 10px 5px 5px #1a1a1aee; */
+}
+
+.module:first-child {
+  margin-left: 6px;
+}
+
+.module:last-child {
+  margin-right: 6px;
 }
 
 .module:hover {
@@ -41,7 +41,7 @@ window#waybar {
 
 #workspaces button {
   color: @overlay2;
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
   padding: 0.2rem 0.8rem;
   margin: 0.1rem 0.3rem;
   transition: all 0.2s ease-out;
@@ -49,6 +49,11 @@ window#waybar {
   text-shadow: none;
   background: none;
   border: none;
+}
+
+#workspaces button.visible:not(.active) {
+  color: @subtext1;
+  background-color: @surface2;
 }
 
 #workspaces button.active {
@@ -80,6 +85,7 @@ window#waybar {
 #clock {
   border-radius: 10px 0 0 10px;
   margin-right: 0;
+  margin-left: 0;
 }
 
 #pulseaudio,
