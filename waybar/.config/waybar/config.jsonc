@@ -94,7 +94,7 @@
     "on-click": "pavucontrol"
   },
   "mpris": {
-    "format": "  {artist} - {title}",
+    "format": " {artist} - {title}",
     "player": "spotify",
     "interval": 1,
     "max-length": 80
