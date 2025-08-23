@@ -121,6 +121,11 @@ window#waybar {
 }
 
 #mpris {
+  color: @overlay2;
+  transition: color 0.2s ease-out;
+}
+
+#mpris.playing {
   color: @green;
 }
 
